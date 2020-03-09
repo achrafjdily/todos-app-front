@@ -1,0 +1,110 @@
+@import "~@angular/material/theming";
+// @include mat-core();
+
+// EPEGA palette
+
+/*Material Theme Colors*/
+$todos-primary: (
+  50: #e7e7e8,
+  100: #c2c4c6,
+  200: #9a9da0,
+  300: #717579,
+  400: #52585d,
+  500: #343a40,
+  600: #2f343a,
+  700: #272c32,
+  800: #21252a,
+  900: #15181c,
+  A100: #343a40,
+  A200: #343a40,
+  A400: #343a40,
+  A700: #343a40,
+  contrast: (
+    50: $light-primary-text,
+    100: $light-primary-text,
+    200: $light-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $light-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
+
+$todos-accent: (
+  50: #edeeef,
+  100: #d3d6d8,
+  200: #b6babe,
+  300: #989ea4,
+  400: #828a91,
+  500: #6c757d,
+  600: #646d75,
+  700: #59626a,
+  800: #4f5860,
+  900: #3d454d,
+  A100: #6c757d,
+  A200: #6c757d,
+  A400: #6c757d,
+  A700: #6c757d,
+  contrast: (
+    50: $light-primary-text,
+    100: $light-primary-text,
+    200: $light-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $light-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
+
+$todos-warn: (
+  50: #fbe7e9,
+  100: #f5c2c7,
+  200: #ee9aa2,
+  300: #e7727d,
+  400: #e15361,
+  500: #dc3545,
+  600: #d8303e,
+  700: #d32836,
+  800: #ce222e,
+  900: #c5161f,
+  A100: #fff6f7,
+  A200: #ffc3c6,
+  A400: #ff9095,
+  A700: #ff777c,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$todos-app-primary: mat-palette($todos-primary);
+$todos-app-accent: mat-palette($todos-accent);
+$todos-app-warn: mat-palette($todos-warn);
+// Create the theme object (a Sass map containing all of the palettes).
+$todos-app-theme: mat-light-theme($todos-app-primary, $todos-app-accent, $todos-app-warn);

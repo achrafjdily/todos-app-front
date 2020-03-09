@@ -1,0 +1,7 @@
+.w-5{
+    width: 10% !important;
+}
+::ng-deep .mat-drawer-container{
+    background-color: unset !important;
+    height: calc(100% - 3.5rem);
+}

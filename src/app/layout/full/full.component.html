@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand w-5" href="/">Todos</a>
+    <button mat-mini-fab color="basic" class="rounded-circle" (click)="drawer.toggle()"><mat-icon class="">menu</mat-icon></button>
+</nav>
+
+<mat-drawer-container class="" [hasBackdrop]="false">
+    <mat-drawer [opened]="true" #drawer [mode]="'push'">
+        <div class="mt-5">
+            <div *ngFor="let menuItem of menuItems">
+                <ng-container *ngIf="menuItem.type == 'link'">
+                    <a class="px-5 bg-dark py-3 font-weight-bold text-light" [routerLink]="[ '/menuItem.state' ]">{{ menuItem.title }}</a>
+                </ng-container>
+            </div>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
