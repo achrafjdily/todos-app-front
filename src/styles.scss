@@ -10,6 +10,8 @@ body {
   font-family: Poppins, "Helvetica Neue", sans-serif;
     background-color: #F5F5F5;
 }
-
+.pointer{
+  cursor: pointer;
+}
 @import "./assets/theme.scss";
 @include angular-material-theme($todos-app-theme);

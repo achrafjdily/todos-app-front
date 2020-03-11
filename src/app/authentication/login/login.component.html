@@ -4,20 +4,23 @@
         <mat-card-subtitle>Welcome back !</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline" class="w-100">
             <mat-label>Username / Email</mat-label>
-            <input matInput placeholder="Enter your username or email">
+            <input matInput placeholder="Enter your username or email" formControlName="username">
         </mat-form-field>
         <mat-form-field appearance="outline" class="w-100">
             <mat-label>Password</mat-label>
-            <input matInput type="password" placeholder="Enter your password">
+            <input matInput type="password" placeholder="Enter your password" formControlName="password">
         </mat-form-field>
         <div class=" d-flex justify-content-end pb-2">
             <button mat-raised-button class="m-0" color="primary">Login</button>
         </div>
+        </form>
     </mat-card-content>
     <mat-card-actions class="px-2">
-        <button mat-raised-button class="w-100 m-0 mb-2" color="basic">Forgot password</button>    
-        <button mat-raised-button color="accent" class="w-100 m-0" [routerLink]="[ '../register' ]">New ? Create an account</button>
+        <button mat-raised-button class="w-100 m-0 mb-2" color="basic">Forgot password</button>
+        <button mat-raised-button color="accent" class="w-100 m-0" [routerLink]="[ '../register' ]">New ? Create an
+            account</button>
     </mat-card-actions>
 </mat-card>

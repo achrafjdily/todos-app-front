@@ -4,12 +4,25 @@
 </nav>
 
 <mat-drawer-container class="" [hasBackdrop]="false">
-    <mat-drawer [opened]="true" #drawer [mode]="'push'">
+    <mat-drawer [opened]="true" #drawer [mode]="'push'" class="w-15">
         <div class="mt-5">
-            <div *ngFor="let menuItem of menuItems">
+            <div *ngFor="let menuItem of menuItems" class="d-flex">
                 <ng-container *ngIf="menuItem.type == 'link'">
-                    <a class="px-5 bg-dark py-3 font-weight-bold text-light" [routerLink]="[ '/menuItem.state' ]">{{ menuItem.title }}</a>
+                    <a class="pl-4 py-3 bg-dark  font-weight-bold text-light w-100 text-decoration-none" [routerLink]="[ '/'+menuItem.state ]">{{ menuItem.title }}</a>
                 </ng-container>
+                <ng-container *ngIf="menuItem.type == 'sub'">
+                    <div class="font-weight-bold text-light w-100 pointer d-flex flex-column sub" >
+                        <span  class="pl-4 py-3 bg-dark sub-title">{{ menuItem.title }} </span>
+                        <div class="sub-menu d-flex flex-column">
+                            <ng-container *ngFor="let subItem of menuItem.children">
+                                <ng-container *ngIf="subItem.type == 'link'">
+                                    <a class="pl-5 py-3   font-weight-bold text-light w-100 sub-link text-decoration-none" [routerLink]="[ '/'+menuItem.state+'/'+subItem.state ]">{{ subItem.title }}</a>
+                                </ng-container>            
+                            </ng-container>    
+                        </div>
+                    </div>
+                </ng-container>
+                
             </div>
         </div>
     </mat-drawer>

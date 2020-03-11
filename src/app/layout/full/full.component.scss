@@ -1,7 +1,46 @@
 .w-5{
     width: 10% !important;
 }
+.w-15{
+    width: 15% !important;
+}
 ::ng-deep .mat-drawer-container{
     background-color: unset !important;
     height: calc(100% - 3.5rem);
+}
+.sub{
+    position: relative;
+
+
+}
+.sub::after{
+    content: "keyboard_arrow_left";
+    // margin-left: 75%;
+    font-family: 'Material Icons';
+    font-size: 1.5rem;
+    top: .5rem;
+    left : 80%;
+    position: absolute;
+    transform: rotate(0deg);
+    transition: 300ms;
+}
+.sub-title:hover{
+    background-color: #1d2124!important;
+}
+.sub:hover .sub-menu{
+    height: 100%;
+    a{
+        display: block;
+    }
+}
+.sub-menu{
+    background-color: #1d2124!important;
+    height: 0%;
+    transition: 300ms;
+    a{
+        display: none;
+    }
+}
+.sub:hover::after{
+    transform: rotate(-90deg);
 }

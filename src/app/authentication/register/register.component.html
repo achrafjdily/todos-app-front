@@ -4,31 +4,36 @@
         <mat-card-subtitle>Welcome to our Todos App !</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Full name</mat-label>
-            <input matInput placeholder="Enter your full name">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Username</mat-label>
-            <input matInput placeholder="choose a username">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Enter your email">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" placeholder="Enter your password">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Confirm your password</mat-label>
-            <input matInput type="password" placeholder="Confirm your password">
-        </mat-form-field>
-        <div class=" d-flex justify-content-end pb-2">
-            <button mat-raised-button class="m-0" color="primary">Register</button>
-        </div>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Full name</mat-label>
+                <input matInput placeholder="Enter your full name" formControlName="fullname">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="choose a username" formControlName="username">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter your email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Enter your password" formControlName="password">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Confirm your password</mat-label>
+                <input matInput type="password" placeholder="Confirm your password" formControlName="password_confirmation">
+            </mat-form-field>
+            <div class=" d-flex justify-content-end pb-2">
+                <button mat-raised-button class="m-0" color="primary" type="submit">Register</button>
+            </div>
+        </form>
+
     </mat-card-content>
     <mat-card-actions class="px-2">
-        <button mat-raised-button color="accent" class="w-100 m-0" [routerLink]="[ '../login' ]">Already have an Account ? Login</button>
+        <button mat-raised-button color="accent" class="w-100 m-0" [routerLink]="[ '../login' ]">Already have an Account
+            ? Login</button>
     </mat-card-actions>
 </mat-card>
