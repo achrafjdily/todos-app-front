@@ -1,3 +1,4 @@
+import { AuthService } from './../../authentication/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -7,34 +8,30 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./full.component.scss']
 })
 export class FullComponent implements OnInit {
+  fullname = localStorage.getItem('user');
   menuItems = [
     {
-      state : 'dashboard',
-      title : "Dashboard",
-      type : 'link'
-    },
-    {
       state : "tasks",
-      title : "Tasks",
-      type : "sub",
-      children : [
-        {state : "today" , title : "Today" , type : "link"},
-        {state : "week" , title : "This Week" , type : "link"},
-        {state : "month" , title : "This Month" , type : "link"},
-      ]
+      title : "Tasks Calendar",
+      type : "link"
     }
   ];
-  constructor(private router:Router) {
+  constructor(private router:Router,private AuthService:AuthService) {
     this.router.events.subscribe(
       data => {
         if(data instanceof NavigationEnd){
-          console.log(data.url)
         }
       }
     )
    }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.AuthService.logout().subscribe(
+      data => {}
+    )
   }
 
 }

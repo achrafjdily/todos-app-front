@@ -12,7 +12,13 @@ export class AuthService {
   constructor(private http:HttpClient,private router:Router) { }
 
   signUp(fullname,email,username,password,password_confirmation){
-    return this.http.post<any>(this.links.signUpLink,{ fullname : fullname , email : email,username : username,password : password,password_confirmation : password_confirmation},{headers : new HttpHeaders()});
+    return this.http.post<any>(this.links.signUpLink,{ fullname : fullname , email : email,username : username,password : password,password_confirmation : password_confirmation},{headers : new HttpHeaders()}).pipe(
+      tap(
+        data => {
+          this.router.navigateByUrl("auth/register");
+        }
+      )
+    );;
   }
   login(username,password){
     return this.http.post<any>(this.links.loginLink,{ username : username , password : password } , { headers : new HttpHeaders()})
@@ -20,7 +26,8 @@ export class AuthService {
       tap(
         data => {
           localStorage.setItem("token",data.token_type+" "+data.access_token);
-          this.router.navigateByUrl("dashboard");
+          localStorage.setItem("user",data.user.fullname);
+          this.router.navigateByUrl("tasks");
         }
       )
     );
@@ -28,7 +35,20 @@ export class AuthService {
   async verify(){
       return await this.http.get<any>(this.links.verifyLink,this.authorizationHeaders()).toPromise()
   }
-
+  user(){
+    return this.http.get<any>(this.links.userLink,this.authorizationHeaders())
+  }
+  logout(){
+    return this.http.get<any>(this.links.logoutLink,this.authorizationHeaders()).pipe(
+      tap(
+        data => {
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+          this.router.navigateByUrl("auth/login");
+        }
+      )
+    );
+  }
   errorHandler(error : HttpErrorResponse){
     return throwError(error || "Server Error");
   }

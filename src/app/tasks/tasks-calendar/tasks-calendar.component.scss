@@ -1,0 +1,18 @@
+
+a:not([href]){
+    .fc-title{
+        color: white !important;
+    }
+    .fc-title:hover{
+        color: white !important;
+    }
+    
+}
+
+.delete-icon{
+    position: absolute;
+    font-family: 'Material Icons';
+    right: 0;
+    top: 0;
+    z-index: 10;
+}

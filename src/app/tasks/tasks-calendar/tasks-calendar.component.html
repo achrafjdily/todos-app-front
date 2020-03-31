@@ -1,0 +1,40 @@
+<mat-card class="">
+    <mat-card-header>
+        <mat-card-title>Tasks Calendar</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="" [formGroup]="taskForm">
+            <h4>Create Tasks form</h4>
+            <div class="d-flex">
+                <mat-form-field appearance="outline">
+                    <mat-label>Task name</mat-label>
+                    <input matInput formControlName="taskName" placeholder="Task name">
+                </mat-form-field>
+                <div class="w-50 ml-5 mt-1" #taskContainer>
+                    <div class="fc-event py-3 h3 pl-2">{{ taskName.value ? taskName.value : "Task Name"   }}</div>
+                </div>
+                <span class="text-secondary py-3  pl-2">
+                    <mat-icon class="align-bottom">chevron_left</mat-icon>
+                     Drag the task in the calendar to create a task
+                </span>
+
+            </div>
+        </form>
+        <full-calendar 
+         #calendar
+        [height]="680"
+        defaultView="dayGridMonth" [plugins]="calendarPlugins"
+        [editable]="true"
+        (eventReceive)="createTask($event)"
+        (eventDrop)="updateTask($event)"
+        (eventRender)="eventDo($event)"
+        (eventClick)="deleteEvent($event)"
+            [header]="{
+            left: 'prev,next today',
+            center: 'title',
+            right : ''
+          }"
+        ></full-calendar>
+
+    </mat-card-content>
+</mat-card>

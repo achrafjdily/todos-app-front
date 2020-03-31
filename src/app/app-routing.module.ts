@@ -8,8 +8,11 @@ import { AuthGuard } from './authentication/services/guards/auth.guard';
 
 const routes: Routes = [
   {
+    path : "" , redirectTo : "tasks" , pathMatch : "full"
+  },
+  {
     path: '', component: FullComponent, children: [
-      { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
+      { path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule) }
     ] , canActivate :[AuthGuard]
   },
   {

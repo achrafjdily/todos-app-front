@@ -15,3 +15,5 @@ body {
 }
 @import "./assets/theme.scss";
 @include angular-material-theme($todos-app-theme);
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';

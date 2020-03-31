@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit {
     if(this.signUpForm.valid){
       this.authService.signUp(this.fullname.value,this.email.value,this.username.value,this.password.value,this.password_confirmation.value).subscribe(
         data => {
-          console.log(data)
         }
       )
     }
