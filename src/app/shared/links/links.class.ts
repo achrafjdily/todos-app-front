@@ -1,5 +1,5 @@
 export class Links {
-    private MainLink = "http://todosappback.test/api/";
+    private MainLink = "https://tasks-todos-api.herokuapp.com/";
     private AuthLink = this.MainLink + "auth/";
     private TasksLink = this.MainLink + "tasks/";
     public readonly signUpLink = this.AuthLink + "signup";
