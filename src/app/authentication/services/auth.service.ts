@@ -50,7 +50,7 @@ export class AuthService {
     );
   }
   errorHandler(error : HttpErrorResponse){
-    return throwError(error || "Server Error");
+    return throwError(error || "Server Error 500");
   }
 
   authorizationHeaders(){
