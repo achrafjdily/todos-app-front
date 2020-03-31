@@ -15,10 +15,10 @@ export class AuthService {
     return this.http.post<any>(this.links.signUpLink,{ fullname : fullname , email : email,username : username,password : password,password_confirmation : password_confirmation},{headers : new HttpHeaders()}).pipe(
       tap(
         data => {
-          this.router.navigateByUrl("auth/register");
+          this.router.navigateByUrl("auth/login");
         }
       )
-    );;
+    )
   }
   login(username,password){
     return this.http.post<any>(this.links.loginLink,{ username : username , password : password } , { headers : new HttpHeaders()})
