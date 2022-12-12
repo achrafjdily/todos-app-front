@@ -29,7 +29,7 @@
     "@fullcalendar/interaction": "^4.4.0",
     "@fullcalendar/timegrid": "^4.4.0",
     "bootstrap": "^4.4.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
